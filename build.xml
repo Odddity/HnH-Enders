@@ -43,7 +43,7 @@
         <property name="lib_cg" value="lib/dll/64/jogl_cg.dll" />
     </target>
 
-    <target name="linux_dlls" if="isWindows">
+    <target name="linux_dlls" if="isLinux">
         <property name="lib_gluegen" value="lib/dll/linux64/libgluegen-rt.so" />
         <property name="lib_jogl" value="lib/dll/linux64/libjogl.so" />
         <property name="lib_awt" value="lib/dll/linux64/libjogl_awt.so" />
