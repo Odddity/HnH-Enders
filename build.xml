@@ -28,6 +28,35 @@
   		</jar>
   </target>
 
+    <condition property="isWindows">
+        <os family="windows" />
+    </condition>
+
+    <condition property="isLinux">
+        <os family="unix" />
+    </condition>
+
+    <target name="win_dlls" if="isWindows">
+        <property name="lib_gluegen" value="lib/dll/64/gluegen-rt.dll" />
+        <property name="lib_jogl" value="lib/dll/64/jogl.dll" />
+        <property name="lib_awt" value="lib/dll/64/jogl_awt.dll" />
+        <property name="lib_cg" value="lib/dll/64/jogl_cg.dll" />
+    </target>
+
+    <target name="linux_dlls" if="isWindows">
+        <property name="lib_gluegen" value="lib/dll/linux64/libgluegen-rt.so" />
+        <property name="lib_jogl" value="lib/dll/linux64/libjogl.so" />
+        <property name="lib_awt" value="lib/dll/linux64/libjogl_awt.so" />
+        <property name="lib_cg" value="lib/dll/linux64/libjogl_cg.so" />
+    </target>
+
+    <target name="dlls" depends="win_dlls, linux_dlls">
+        <copy file="${lib_gluegen}" todir="build" />
+        <copy file="${lib_jogl}" todir="build" />
+        <copy file="${lib_awt}" todir="build" />
+        <copy file="${lib_cg}" todir="build" />
+    </target>
+
   <target name="haven-client" depends="build-env">
     <javac srcdir="src" destdir="build/classes" debug="on"
 	   source="1.5" target="1.5" includeantruntime="no">
@@ -70,7 +99,7 @@
     </unjar>
   </target>
 
-  <target name="jar" depends="haven-client,buildinfo,lib-classes,resources">
+  <target name="jar" depends="haven-client,buildinfo,lib-classes,resources,dlls">
     <jar destfile="build/haven.jar" update="true">
       <fileset dir="build/classes" excludes="*.class"/>
       <fileset dir="build/classes-lib" />
