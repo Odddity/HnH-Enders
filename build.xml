@@ -83,7 +83,7 @@
   </target>
   
   <target name="res-jar" depends="build-env" unless="has-res-jar">
-    <get src="http://www.havenandhearth.com/java/haven-res.jar" dest="lib/haven-res.jar"
+    <get src="http://legacy.havenandhearth.com/java/haven-res.jar" dest="lib/haven-res.jar"
 	 usetimestamp="true" />
   </target>
   
@@ -93,6 +93,7 @@
 	<include name="jogl.jar" />
 	<include name="gluegen-rt.jar" />
 	<include name="haven-res.jar" />
+    <include name="run.bat" />
       </fileset>
     </copy>
   </target>
