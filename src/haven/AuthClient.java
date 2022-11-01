@@ -26,10 +26,8 @@
 
 package haven;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
+import java.io.*;
+import java.net.*;
 import java.security.MessageDigest;
 
 public class AuthClient {
@@ -46,7 +44,7 @@ public class AuthClient {
     static {
 	ssl = new SslHelper();
 	try {
-	    ssl.trust(ssl.loadX509(Resource.class.getResourceAsStream("authsrv.crt")));
+	    ssl.trust(Resource.class.getResourceAsStream("authsrv.crt"));
 	} catch(Exception e) {
 	    throw(new RuntimeException(e));
 	}
