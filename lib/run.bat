@@ -1,1 +1,1 @@
-java -Xms256m -Xmx512m -jar haven.jar legacy.havenandhearth.com -r ./res
+java -Xms256m -Xmx512m -jar haven.jar odditown.com -r ./res

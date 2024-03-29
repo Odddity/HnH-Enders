@@ -138,9 +138,9 @@ public class Config {
 	    authuser = getprop("haven.authuser", null);
 	    authserv = getprop("haven.authserv", null);
 	    defserv = getprop("haven.defserv", null);
-	    if(!(p = getprop("haven.resurl", "http://legacy.havenandhearth.com/res/")).equals(""))
+	    if(!(p = getprop("haven.resurl", "http://odditown.com/oddihaven/res/")).equals(""))
 		resurl = new URL(p);
-	    if(!(p = getprop("haven.mapurl", "http://legacy.havenandhearth.com/mm/")).equals(""))
+	    if(!(p = getprop("haven.mapurl", "http://odditown.com/oddihaven/mm/")).equals(""))
 		mapurl = new URL(p);
 	    fullscreen = getprop("haven.fullscreen", "off").equals("on");
 	    loadwaited = getprop("haven.loadwaited", null);

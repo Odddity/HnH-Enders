@@ -49,6 +49,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.prefs.Preferences;
+import oddihaven.PrefDummy;
 
 public class Utils {
     private static Preferences prefs = null;
@@ -164,7 +165,7 @@ public class Utils {
     static synchronized String getpref(String prefname, String def) {
 	try {
 	    if(prefs == null)
-		prefs = Preferences.userNodeForPackage(Utils.class);
+		prefs = Preferences.userNodeForPackage(PrefDummy.class);
 	    return(prefs.get(prefname, def));
 	} catch(SecurityException e) {
 	    return(def);
@@ -174,7 +175,7 @@ public class Utils {
     static synchronized void setpref(String prefname, String val) {
 	try {
 	    if(prefs == null)
-		prefs = Preferences.userNodeForPackage(Utils.class);
+		prefs = Preferences.userNodeForPackage(PrefDummy.class);
 	    prefs.put(prefname, val);
 	} catch(SecurityException e) {
 	}
@@ -183,7 +184,7 @@ public class Utils {
     static synchronized byte[] getprefb(String prefname, byte[] def) {
 	try {
 	    if(prefs == null)
-		prefs = Preferences.userNodeForPackage(Utils.class);
+		prefs = Preferences.userNodeForPackage(PrefDummy.class);
 	    return(prefs.getByteArray(prefname, def));
 	} catch(SecurityException e) {
 	    return(def);
@@ -193,7 +194,7 @@ public class Utils {
     static synchronized void setprefb(String prefname, byte[] val) {
 	try {
 	    if(prefs == null)
-		prefs = Preferences.userNodeForPackage(Utils.class);
+		prefs = Preferences.userNodeForPackage(PrefDummy.class);
 	    prefs.putByteArray(prefname, val);
 	} catch(SecurityException e) {
 	}
